@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+ 
+<form action="/market/delete" method="post">
+    <table border="1">
+        <input type="hidden" name="idx" value="<%=row.idx%>"/>
+        <tr>
+            <td>작성자</td>
+            <td><input type="text" name="name" id="name" value="<%=row.user_name%>" required/></td>
+        </tr>
+        <tr>
+            <td>제목</td>
+            <td><input type="text" name="title" id="title" value="<%=row.board_title%>" required/></td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td><textarea name="content" id="content" cols="30" rows="10" required><%=row.board_content%></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">글 삭제</button>
+                <a href="/market">목록</a>
+            </td>
+           
+        </tr>
+    </table>
+</form>
+ 
+</body>
+</html>

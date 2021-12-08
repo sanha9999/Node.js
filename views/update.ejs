@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>update</title>
+</head>
+<body>
+    <table width="30%">
+        <tr>
+            <td><a href="/">홈으로</a></td>
+            <td><a href="/market">게시판</a></td>
+            <td><a href="/board">물품 게시판</a></td>
+            <td><a href="/logout">logout</a></td>
+        </tr>
+    </table>
+<h1>회원정보 업데이트</h1>
+
+<table border="1">
+    <tr>
+        
+        <td>받은 물품</td>
+    
+    </tr>
+    <%
+    for(var i=0; i<rows.length; i++)
+    {
+        var data = rows[i];
+        
+    %>
+    <tr>
+        
+        <td><%=data.product_name%></td>
+        
+    </tr>
+    <%}%>
+</table>
+ 
+<form action="/update/up" method="post">
+    <table border="1">
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name" id="name" required/></td>
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td><input type="number" name="age" id="age" required/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">수정</button>
+            </td>
+        </tr>
+    </table>
+</form>
+ 
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+ 
+ 
+<form action="/board/write" method="post">
+    <table border="1">
+        <tr>
+            <td>물품 이름</td>
+            <td><input type="text" name="title" id="title" required/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">올리기</button>
+            </td>
+        </tr>
+    </table>
+</form>
+ 
+ 
+</body>
+</html>
+ 
+
+

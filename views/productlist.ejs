@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    
+</head>
+<body>
+    <% if(is_logined==false){ %>
+        <table width="30%">
+            <td><a href="/">홈으로</a></td>
+            <td><a href="/login">로그인</a></td>
+            <td><a href="/register">회원가입</a></td>
+            <td><a href="/market">게시판</a></td>
+            <td><a href="/board">물품 게시판</a></td>
+        </table>
+
+        <% }else{ %>
+            <table width="30%">
+                <tr>
+                    <td><a href="/">홈으로</a></td>
+                    <td><a href="/update">정보</a></td>
+                    <td><a href="/market">게시판</a></td>
+                    <td><a href="/board">물품 게시판</a></td>
+                    <td><a href="/logout">logout</a></td>
+                </tr>
+            </table>
+            <% } %>
+<a href="/board/write">물품 올리기</a>
+<table border="1">
+    <tr>
+        <td>번호</td>
+        <td>작성자</td>
+        <td>물품</td>
+    
+    </tr>
+    <%
+    var z = 0;
+    for(var i=0; i<rows.length; i++)
+    {   
+        
+        var data = rows[i];
+        if(data.buyer_idx == null){
+            var j = i + 1; %>
+            <tr>
+                <td><%=data.idx - z%></td>
+                <td><%=data.user_name%></td>
+                <td><a href="/board/<%=data.idx%>"><%=data.product_name%></a></td>
+            </tr>
+        <%}
+        else{
+            z = z + 1; 
+        }
+        
+    }%>
+</table>
+</body>
+</html>

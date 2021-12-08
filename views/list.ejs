@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    
+</head>
+<body>
+    <% if(is_logined==false){ %>
+        <table width="30%">
+            <td><a href="/">홈으로</a></td>
+            <td><a href="/login">로그인</a></td>
+            <td><a href="/register">회원가입</a></td>
+            <td><a href="/market">게시판</a></td>
+            <td><a href="/board">물품 게시판</a></td>
+        </table>
+
+        <% }else{ %>
+            <table width="30%">
+                <tr>
+                    <td><a href="/">홈으로</a></td>
+                    <td><a href="/market">게시판</a></td>
+                    <td><a href="/board">물품 게시판</a></td>
+                    <td><a href="/update">정보</a></td>
+                    <td><a href="/logout">logout</a></td>
+                </tr>
+            </table>
+            <% } %>
+<a href="/market/write">글쓰기</a>
+<table border="1">
+    <tr>
+        <td>번호</td>
+        <td>작성자</td>
+        <td>제목</td>
+    
+    </tr>
+    <%
+    for(var i=0; i<rows.length; i++)
+    {
+        var data = rows[i];
+        var j = i + 1;
+    %>
+    <tr>
+        <td><%=j%></td>
+        <td><%=data.user_name%></td>
+        <td><a href="/market/<%=data.idx%>"><%=data.board_title%></a></td>
+    </tr>
+    <%}%>
+</table>
+</body>
+</html>
